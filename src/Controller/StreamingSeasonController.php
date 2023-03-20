@@ -19,7 +19,7 @@ class StreamingSeasonController extends AbstractController
     #[Route('/streaming/season/movie', name: 'streaming_season_movie')]
     public function movie(): Response
     {
-        return $this->render('streaming_season/index.html.twig', [
+        return $this->render('streaming_season/movie.html.twig', [
             'controller_name' => 'StreamingSeasonController',
         ]);
     }
