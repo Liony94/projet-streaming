@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+<form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+
+            <!--=====================================-->
+        <!--=        login Area Start          =-->
+        <!--=====================================-->
+        <section class="login text-center">
+            <div class="container">
+                <div class="login-block">
+                    <div class="login-content">
+                        <h3>Log in</h3>
+                        <button class="hide-link"><img src="./assets/media/login/google.png" alt=""> Continue with Google</button>
+                        <button class="hide-link"><img src="./assets/media/login/facebook-icon.png" alt=""> Continue with Facebook</button>
+                        <button id="continue-email" class="hide-link"><img src="./assets/media/login/email-icon.png" alt=""> Continue with email</button>
+                        <div class="login-sec" style="display: none;">
+
+                            <form action="login.html">
+                                <div class="form-group">
+                                    <input class="form-control" type="email" name="email" required placeholder="username or email address">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="password" name="password" required placeholder="enter password">
+                                </div>
+                                <button type="submit" class="anime-btn btn-dark border-change">
+                                    Log In
+                                </button>
+                            </form>
+                            <p><a href="./reset-password.html">Forget Password</a></p>
+                        </div>
+                        <p><a href="./signup.html">Sign Up <i class="fal fa-arrow-alt-right"></i></a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock %}
+
+    {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+    #}

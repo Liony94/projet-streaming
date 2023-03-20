@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Register
+{% endblock %}
+
+{% block body %}
+  <h1>
+    Register
+  </h1>
+
+  <section class="login text-center">
+    <div class="container">
+      <div class="login-block">
+        <div class="login-content">
+          <h3>Sign up</h3>
+          <p>Enter your username or email and password to sign up.</p>
+          {{ form_start(registrationForm) }}
+          {{ form_row(registrationForm.email) }}
+          {{ form_row(registrationForm.plainPassword, { label: 'Password'}) }}
+          {{ form_row(registrationForm.agreeTerms) }}
+
+          <button type="submit" class="anime-btn btn-dark border-change">Register</button>
+
+          {{ form_end(registrationForm) }}
+          
+          <p>By continuing, you agree to ANIMELOOP Terms of Use and Privacy Policy.</p>
+          <p>Create an account? <a href="./login.html">log in</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
